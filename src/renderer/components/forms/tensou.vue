@@ -1,0 +1,213 @@
+<template>
+    <section class="tensouTab" id="tensouTab">
+        <!-- -------------------------------------------------------------------------------------------- -->
+        <!-- フォーム -->
+        <!-- -------------------------------------------------------------------------------------------- -->
+        <form>
+            <div class="row">
+                <!-- 一列目 -->
+                <div class="col-sm-6">
+                    <!-- 接触場所 -->
+                    <div class="form-group row no-gutters">
+                        <label class="col-3 col-form-label">接触場所</label>
+                        <div class="col-9">
+                            <input class="form-control" type="text" placeholder="例: 病室のベッド" v-model="place">
+                        </div>
+                    </div>
+                    <!-- 体位 -->
+                    <div class="form-group row no-gutters">
+                        <label class="col-3 col-form-label">体位</label>
+                        <div class="col-9">
+                            <select class="form-control" v-model="poseIn">
+                                <option v-for="po in pose">{{ po }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- 意識レベル -->
+                    <div class="form-group row no-gutters">
+                        <label class="col-3 col-form-label">意識レベル</label>
+                        <div class="col-9">
+                            <select class="form-control" v-model="jcsIn">
+                                <option v-for="jc in jcs" v-bind:value="jc.value">{{ jc.text }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- 呼吸数 -->
+                    <div class="form-group row no-gutters">
+                        <label class="col-3 col-form-label">呼吸数</label>
+                        <div class="col-9">
+                            <select class="form-control" v-model="rrIn">
+                                <option v-for="r in rr">{{ r }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- 脈拍数 -->
+                    <div class="form-group row no-gutters">
+                        <label class="col-3 col-form-label">脈拍数</label>
+                        <div class="col-9">
+                            <select class="form-control" v-model="hrIn">
+                                <option v-for="h in hr">{{ h }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- 主訴 -->
+                    <div class="form-group row no-gutters">
+                        <label class="col-3 col-form-label">主訴</label>
+                        <div class="col-9">
+                            <input class="form-control" type="text" placeholder="例: 胸痛" v-model="syuso">
+                        </div>
+                    </div>
+                </div>
+                <!-- 二列目 -->
+                <div class="col-sm-6">
+                    <!-- バイタル測定 -->
+                    <div class="form-group row no-gutters">
+                        <label class="col-3 col-form-label">バイタル測定</label>
+                        <div class="col-9">
+                            <div class="form-check form-check-inline" v-for="vi in vital">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" v-bind:value="vi" v-model="vitalIn">  {{ vi }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 身体所見 -->
+                    <div class="form-group row no-gutters">
+                        <label class="col-3 col-form-label">身体所見</label>
+                        <div class="col-9">
+                            <div class="form-check form-check-inline" v-for="bo in body">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" v-bind:value="bo.value" v-model="bodyIn">  {{ bo.text }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 酸素投与 -->
+                    <div class="form-group row no-gutters">
+                        <label class="col-3 col-form-label">酸素投与</label>
+                        <div class="col-4">
+                            <select class="form-control" v-model="oxgenIn">
+                                <option v-for="ox in oxgen">{{ ox }}</option>
+                            </select>
+                        </div>
+                        <div class="col-4">
+                            <select class="form-control mg-l-20" v-model="oxnumIn">
+                                <option v-for="oxn in oxnum">{{ oxn }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- 搬出方法 -->
+                    <div class="form-group row no-gutters">
+                        <label class="col-3 col-form-label">搬出方法</label>
+                        <div class="col-9">
+                            <select class="form-control" v-model="transIn">
+                                <option v-for="tr in trans">{{ tr }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- 毛布による保温 -->
+                    <div class="form-group row no-gutters">
+                        <label class="col-3 col-form-label">保温の有無</label>
+                        <div class="col-9">
+                            <div class="form-check form-check-inline" v-for="he in heat">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" v-bind:value="he" v-model="heatIn">  {{ he }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 同乗者 -->
+                    <div class="form-group row no-gutters">
+                        <label class="col-3 col-form-label">同乗者</label>
+                        <div class="col-9">
+                            <select class="form-control" v-model="rideIn">
+                                <option v-for="ri in ride">{{ ri }}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- -------------------------------------------------------------------------------------------- -->
+        <!-- モーダル関連 -->
+        <!-- -------------------------------------------------------------------------------------------- -->
+        <!-- 文章表示ボタン -->
+        <hr>
+        <button type="button" class="btn btn-primary btn-block mg-t-30" data-toggle="modal" data-target="#tensouResult">文章作成</button>
+
+        <!-- 結果表示モーダル -->
+        <div class="modal fade" id="tensouResult" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body" id="tensouResltText">
+                        {{ result }}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary clip_copy_btn" data-clipboard-target="#tensouResltText">文章をコピー</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+
+<script>
+    var sentence = require('../../myfunc.js')
+    export default {
+        props: {
+            'pose': Array,
+            'jcs' : Array,
+            'rr' : Array,
+            'hr' : Array,
+            'vital' : Array,
+            'body' : Array,
+            'trans' : Array,
+            'heat' : Array,
+            'oxgen' : Array,
+            'oxnum' : Array,
+            'ride' : Array,
+        },
+        data () {
+            return {
+                place : "",
+                poseIn : "仰臥位",
+                jcsIn: "意識晴明",
+                rrIn: "正常",
+                hrIn: "正常",
+                syuso: "",
+                vitalIn: [],
+                bodyIn: [],
+                oxgenIn: "投与なし",
+                oxnumIn: "投与量",
+                transIn: "独歩",
+                heatIn: "なし",
+                rideIn: "なし",
+            }
+        },
+        computed: {
+            result: function () {
+                if(this.oxgenIn == "投与なし") {
+                    var join =
+                    // 酸素投与なし
+                        "一次観察の結果は，" + this.place + "に" + this.poseIn + "で" + this.jcsIn + "，" +
+                        sentence.createHRS(this.rrIn, this.hrIn, this.syuso)  +
+                        this.transIn + "で車内収容する。" + "二次観察として状況聴取とともに" +
+                        sentence.createVB(this.vitalIn,this.bodyIn) + "を行う。" +
+                        "転院先の医療機関に確認後は，" + sentence.createRIDE(this.rideIn) +
+                        sentence.createHEAT(this.heatIn) + "継続観察をして搬送する。";
+                }else {
+                    var join =
+                        "一次観察の結果は，" + this.place + "に" + this.poseIn + "で" + this.jcsIn + "，" +
+                        sentence.createHRS(this.rrIn, this.hrIn, this.syuso)  +
+                        this.transIn + "で車内収容する。" + "二次観察として状況聴取とともに" +
+                        sentence.createVBandO(this.vitalIn,this.bodyIn,this.oxgenIn,this.oxnumIn) +
+                        "を行う。" + "転院先の医療機関に確認後は，" + sentence.createRIDE(this.rideIn) +
+                        sentence.createHEAT(this.heatIn) + "継続観察をして搬送する。";
+                }
+                return join
+            }
+        }
+    }
+</script>

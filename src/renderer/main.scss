@@ -1,0 +1,366 @@
+// ------------------------------------------------------------------
+// import
+// ------------------------------------------------------------------
+
+// bootstrap読み込み
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+
+// ------------------------------------------------------------------
+// util
+// ------------------------------------------------------------------
+
+// margin調節
+$i:100;
+@while $i > -1 {
+    .mg-t-#{$i} {
+        margin-top: #{$i}px !important;
+    }
+    .mg-b-#{$i} {
+        margin-bottom: #{$i}px !important;
+    }
+    $i: $i - 5;
+}
+$i:100;
+@while $i > -1 {
+    .mg-r-#{$i} {
+        margin-right: #{$i}px !important;
+    }
+    .mg-l-#{$i} {
+        margin-left: #{$i}px !important;
+    }
+    $i: $i - 5;
+}
+//padding調節
+$i:100;
+@while $i >= 0 {
+    .pd-t-#{$i} {
+        padding-top: #{$i}px !important;
+    }
+    .pd-b-#{$i} {
+        padding-bottom: #{$i}px !important;
+    }
+    $i: $i - 5;
+}
+$i:100;
+@while $i >= 0 {
+    .pd-l-#{$i} {
+        padding-left: #{$i}px !important;
+    }
+    .pd-r-#{$i} {
+        padding-right: #{$i}px !important;
+    }
+    $i: $i - 5;
+}
+
+// ------------------------------------------------------------------
+// custom form関連
+// ------------------------------------------------------------------
+//container幅の設定
+.container {
+    width: 1200px;
+}
+//bodyの色を動的に変換
+body {
+    background-color: #fff;
+}
+.bd-white {
+    background-color: #fff;
+    .btn-primary {
+        background-color: $brand-primary;
+        border-color: darken($brand-primary,10%);
+        &:hover {
+            background-color: darken($brand-primary ,10%);
+        }
+    }
+}
+.bd-blue {
+    background-color: lighten($brand-primary, 30%);
+    .btn-primary {
+        background-color: $brand-primary;
+        border-color: darken($brand-primary,10%);
+        &:hover {
+            background-color: darken($brand-primary ,10%);
+        }
+    }
+    .col-form-label {
+        &:after {
+            border-color: lighten($brand-primary, 45%);
+        }
+    }
+}
+.bd-green {
+    background-color: lighten($brand-success, 20%);
+    .btn-primary {
+        background-color: $brand-success;
+        border-color: darken($brand-success,10%);
+        &:hover {
+            background-color: darken($brand-success ,10%);
+        }
+    }
+    .col-form-label {
+        &:after {
+            border-color: lighten($brand-success, 30%);
+        }
+    }
+}
+.bd-yellow {
+    background-color: lighten($brand-warning, 10%);
+    .btn-primary {
+        background-color: $brand-warning;
+        border-color: darken($brand-warning,10%);
+        &:hover {
+            background-color: darken($brand-warning ,10%);
+        }
+    }
+    .col-form-label {
+        &:after {
+            border-color: lighten($brand-warning, 10%) ;
+        }
+    }
+}
+.bd-red {
+    background-color: lighten($brand-danger, 20%);
+    .btn-primary {
+        background-color: $brand-danger;
+        border-color: darken($brand-danger,10%);
+        &:hover {
+            background-color: darken($brand-danger ,10%);
+        }
+    }
+    .col-form-label {
+        &:after {
+            border-color: lighten($brand-danger, 20%);
+        }
+    }
+}
+.bd-purple {
+    $brand-purple : #9D73BB;
+    background-color: lighten($brand-purple, 20%);
+    .btn-primary {
+        background-color: $brand-purple;
+        border-color: darken($brand-purple,10%);
+        &:hover {
+            background-color: darken($brand-purple ,10%);
+        }
+    }
+    .col-form-label {
+        &:after {
+            border-color: lighten($brand-purple, 20%);
+        }
+    }
+}
+
+//タイトルの調整
+.main-title {
+    font-size: 38px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(#000,0.3);
+    margin-top: 30px;
+    margin-bottom: 30px;
+    span {
+        font-size: 26px;
+        margin-left: 10px;
+    }
+}
+
+// タブタイトルの追加
+.tab-title {
+    position: absolute;
+    right: 11px;
+    top: -4px;
+    font-weight: bold;
+    font-size: 75px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 5px;
+}
+
+//タブの調整
+.tab-content {
+    padding: 30px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top: none;
+    box-shadow: 3px 3px 4px rgba(#000,0.2);
+}
+.nav-tabs .nav-link {
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(#000,0.5);
+    &:hover {
+        color: #292b2c;
+        text-shadow: none;
+        background-color: rgba(#fff,0.6);
+    }
+}
+.nav-tabs .nav-link.active {
+    text-shadow: none;
+    &:hover {
+        background-color: #fff;
+    }
+}
+//モーダル調整
+.modal-dialog {
+    max-width: 650px;
+}
+.modal-body {
+    font-size: 20px;
+    line-height: 2;
+}
+//中央揃え
+.modal {
+    text-align: center;
+    padding: 0!important;
+}
+
+.modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+// フォーム調整
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+
+    > .col,
+    > [class*="col-"] {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+.form-check-inline + .form-check-inline {
+    margin-left: 20px;
+}
+
+//フォームラベル装飾
+.col-form-label {
+    position: relative;
+    &:after {
+        content: "";
+        position: absolute;
+        top: 11px;
+        right: 16px;
+        height: 17px;
+        border: solid 2px lighten($brand-primary, 30%);
+        border-radius: 18%;
+    }
+}
+
+
+// ------------------------------------------------------------------
+// custom DB関連
+// ------------------------------------------------------------------
+.VueTables {
+    // 検索フォーム
+    .VueTables__search {
+        width: 100%;
+        margin-bottom: 30px;
+        label {
+            font-size: 30px;
+            &:before {
+                content: "\F002";
+                font-family: FontAwesome;
+                color: $brand-warning;
+                margin-right: 5px;
+            }
+        }
+        input {
+            display: block;
+            padding: 16px;
+            width: 100%;
+            background-color: rgba($brand-warning,0.3);
+        }
+    }
+    // tableレイアウト
+    thead {
+        border-bottom: 4px solid #bbb;
+        tr {
+            th {
+                text-align: center;
+                cursor: pointer;
+            }
+            th:nth-child(4) {
+                width: 7%;
+            }
+            th:nth-child(3) {
+                width: 8%;
+            }
+            th:last-child {
+                width: 30%;
+            }
+        }
+    }
+    td {
+        vertical-align: middle;
+    }
+    .table-bordered th, .table-bordered td {
+        border: 1px solid #ccc;
+    }
+}
+
+// ------------------------------------------------------------------
+// index.vue関連
+// ------------------------------------------------------------------
+.menu-block {
+    height: 630px;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    .menu-block-list {
+        a {
+            width: 600px;
+            font-size: 50px;
+            text-align: left;
+            i {
+                margin-right: 24px;
+            }
+            .b-title {
+                text-shadow: 2px 2px 2px rgba(#000,0.3);
+                font-weight: bold;
+            }
+        }
+        p {
+            margin-top: 15px;
+            font-size: 20px;
+            .come {
+                font-size: 80%;
+            }
+        }
+    }
+}
+
+
+// ------------------------------------------------------------------
+// 疾病検索
+// ------------------------------------------------------------------
+
+.search-btn {
+    text-align: center;
+    input {
+        display: inline-block;
+        width: 500px;
+    }
+    .btn {
+        display: inline-block;
+    }
+}
+
+.search-table {
+    thead {
+        font-weight: bold;
+        text-align: center;
+    }
+    th, td {
+        border: 1px solid #ccc;
+    }
+}
