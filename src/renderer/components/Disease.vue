@@ -25,7 +25,7 @@
                 <button @click="dbQuery" class="btn btn-success btn-lg mg-l-20">検索</button>
             </div>
             <!-- 検索結果テーブル -->
-            <table class="table table-striped table-bordered mg-t-50 search-table" v-if="findRisult != ''">
+            <table class="table table-striped table-bordered mg-t-50 search-table" v-if="findRisult.length !== 0">
                 <thead>
                     <tr class="table-success">
                         <td>疾病</td>
@@ -41,8 +41,10 @@
                     </tr>
                 </tbody>
             </table>
+            <div v-else-if="Array.isArray(findRisult)">
+                <h4 class="text-center mg-t-50">検索文字が見つかりません。文字を削るなどして再検索してください。</h4>
+            </div>
         </div>
-        {{ erre }}
     </div>
 </template>
 
