@@ -197,14 +197,14 @@
                             "一次観察の結果は，" + this.place + "に" + this.poseIn + "で" + this.jcsIn + "，" +
                             sentence.createHRS(this.rrIn, this.hrIn, this.syuso)  +
                             "二次観察として状況聴取とともに" + sentence.createVB(this.vitalIn,this.bodyIn) + "を行う。" +
-                            this.transIn + "で車内収容し，医療機関の選定後は，" + sentence.createHEAT(this.heatIn) +
+                            this.transIn + "で車内収容し，医療機関の選定後に" + sentence.createHEAT(this.heatIn) +
                             "継続観察をして搬送する。";
                     }else {
                         // 車内で二次観察
                         var join =
                             "一次観察の結果は，" + this.place + "に" + this.poseIn + "で" + this.jcsIn + "，" +
                             sentence.createHRS(this.rrIn, this.hrIn, this.syuso)  +
-                            this.transIn + "で車内収容する。" + "二次観察として状況聴取とともに" +
+                            this.transIn + "で車内収容する。" + "二次観察として，状況聴取とともに" +
                             sentence.createVB(this.vitalIn,this.bodyIn) + "を行う。" +
                             "医療機関の選定後は，" + sentence.createHEAT(this.heatIn) + "継続観察をして搬送する。";
                     }
@@ -216,14 +216,14 @@
                             "一次観察の結果は，" + this.place + "に" + this.poseIn + "で" + this.jcsIn + "，" +
                             sentence.createHRS(this.rrIn, this.hrIn, this.syuso)  +"二次観察として状況聴取とともに" +
                             sentence.createVBandO(this.vitalIn,this.bodyIn,this.oxgenIn,this.oxnumIn) + "を行う。" +
-                            this.transIn + "で車内収容し，医療機関の選定後は，" + sentence.createHEAT(this.heatIn) +
+                            this.transIn + "で車内収容し，医療機関の選定後に" + sentence.createHEAT(this.heatIn) +
                             "継続観察をして搬送する。";
                     }else {
                         // 車内で二次観察
                         var join =
                             "一次観察の結果は，" + this.place + "に" + this.poseIn + "で" + this.jcsIn + "，" +
                             sentence.createHRS(this.rrIn, this.hrIn, this.syuso)  +
-                            this.transIn + "で車内収容する。" + "二次観察として状況聴取とともに" +
+                            this.transIn + "で車内収容する。" + "二次観察として，状況聴取とともに" +
                             sentence.createVBandO(this.vitalIn,this.bodyIn,this.oxgenIn,this.oxnumIn) + "を行う。" +
                             "医療機関の選定後は，" + sentence.createHEAT(this.heatIn) + "継続観察をして搬送する。";
                     }

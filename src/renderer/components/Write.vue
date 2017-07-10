@@ -123,7 +123,7 @@ export default {
             body: [
             { text: '呼吸音', value: '呼吸音の聴診' },
             { text: '腹部触診', value: '腹部の触診' },
-            { text: '神経学的初見', value: '神経学的初見の観察' },
+            { text: '神経学的所見', value: '神経学的所見の観察' },
             ],
             oxgen: [
                 '投与なし',

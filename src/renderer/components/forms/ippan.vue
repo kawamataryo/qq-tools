@@ -218,13 +218,13 @@
                             sentence.createHRS(this.rrIn, this.hrIn, this.syuso)  +
                             "二次観察として状況聴取とともに，" + this.observIn + "と" + sentence.createVB(this.vitalIn,this.bodyIn) +
                             "を行う。" +
-                            this.transIn + "で車内収容し，医療機関の選定後は、継続観察をして搬送する。";
+                            this.transIn + "で車内収容し，医療機関の選定後に継続観察をして搬送する。";
                     }else {
                         // 車内で二次観察
                         var join =
                             "一次観察の結果は，" + this.place + "に" + this.poseIn + "で" + this.jcsIn + "，" +
                             sentence.createHRS(this.rrIn, this.hrIn, this.syuso)  +
-                            this.transIn + "で車内収容する。" + "二次観察として状況聴取とともに，" + this.observIn + "と"
+                            this.transIn + "で車内収容する。" + "二次観察として，状況聴取とともに，" + this.observIn + "と"
                             sentence.createVB(this.vitalIn,this.bodyIn) + "を行う。" +
                             "医療機関の選定後は，継続観察をして搬送する。";
                     }
@@ -238,13 +238,13 @@
                             this.observIn + "と" +
                             sentence.createVB(this.vitalIn,this.bodyIn) +
                             sentence.createCARE(this.damageposi, this.scratchIn, this.cmIn, this.careIn) +
-                            this.transIn + "で車内収容し，医療機関の選定後は，継続観察をして搬送する。";
+                            this.transIn + "で車内収容し，医療機関の選定後に継続観察をして搬送する。";
                     }else {
                         // 車内で二次観察
                         var join =
                             "一次観察の結果は，" + this.place + "に" + this.poseIn + "で" + this.jcsIn + "，" +
                             sentence.createHRS(this.rrIn, this.hrIn, this.syuso)  +
-                            this.transIn + "で車内収容する。" + "二次観察として状況聴取とともに，" +
+                            this.transIn + "で車内収容する。" + "二次観察として，状況聴取とともに，" +
                             this.observIn + "と" +
                             sentence.createVB(this.vitalIn,this.bodyIn) +
                             sentence.createCARE(this.damageposi, this.scratchIn, this.cmIn, this.careIn) +
