@@ -4,26 +4,32 @@
         <headerNav></headerNav>
         <!-- コンテンツ -->
         <div class="container">
-            <h1 class="text-center mg-t-100"><i class="fa fa-stethoscope mg-r-15"></i>疾病分類検索フォーム</h1>
-            <p class="text-center">傷病名を下記フォームに入力してください</p>
+            <h1 class="text-center mg-t-100"><i class="fa fa-search mg-r-15"></i>過去事案検索フォーム</h1>
+            <p class="text-center">検索文字を下記フォームに入力してください</p>
             <div class="form-group search-btn mg-t-40">
                 <input type="text" v-model="findWord" class="form-control form-control-lg">
-                <button @click="dbQuery" class="btn btn-success btn-lg mg-l-20">検索</button>
+                <button @click="dbQuery" class="btn btn-warning btn-lg mg-l-20">検索</button>
             </div>
             <!-- 検索結果テーブル -->
-            <table class="table table-striped table-bordered mg-t-50 search-table" v-if="findRisult.length !== 0">
+            <table id="houkokusyo-tb" class="table table-striped table-bordered mg-t-50 search-table" v-if="findRisult.length !== 0">
                 <thead>
                     <tr class="table-success">
-                        <td>疾病</td>
-                        <td>大分類</td>
-                        <td>中分類</td>
+                        <th>日付</th>
+                        <th>出動隊</th>
+                        <th>種別</th>
+                        <th>搬送者者</th>
+                        <th>概要備考</th>
+                        <th>事故等の内容</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="item in findRisult">
+                        <td>{{ item.day }}</td>
+                        <td>{{ item.team }}</td>
                         <td>{{ item.case }}</td>
-                        <td>{{ item.class1 }}</td>
-                        <td>{{ item.class2 }}</td>
+                        <td>{{ item.num }}</td>
+                        <td>{{ item.biko }}</td>
+                        <td>{{ item.naiyo }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -37,7 +43,6 @@
 
 <script>
 
-
 // templateの読み込み
 import headerNav from './common/headerNav.vue'
 
@@ -47,10 +52,10 @@ import headerNav from './common/headerNav.vue'
 
 //インメモリでDB作成
 var Database = require("nedb");
-var diseaseDB = new Database();
+var houkokusyoDB = new Database();
 //データ読み込み挿入
-import dbData from './diseaseConv.json';
-diseaseDB.insert(dbData);
+import dbData from './houkokusyo.json';
+houkokusyoDB.insert(dbData);
 
 
 // ---------------------------------------------------------------------
@@ -69,11 +74,15 @@ export default {
     },
     methods: {
         dbQuery: function () {
-            diseaseDB.find({case: new RegExp(".*"+this.findWord+".*", "i")} , function (err, doc) {
-                this.findRisult = doc;
+            houkokusyoDB.find({biko: new RegExp(".*"+this.findWord+".*", "i")} , function (err, doc) {
+                this.findRisult = doc.sort((a, b) => {
+                    if (a.day > b.day) return -1;
+                    if (a.day < b.day) return 1;
+                    return 0;
+                });
             }.bind(this));
         }
     },
-    name: 'disease'
+    name: 'houkokusyo'
 }
 </script>

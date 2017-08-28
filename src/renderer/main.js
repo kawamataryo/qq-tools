@@ -38,12 +38,11 @@ window.addEventListener('beforeunload', () => {
 // ---------------------------------------------------------------------
 // 独自スクリプトの読み込み
 // ---------------------------------------------------------------------
-// jqueryの読み込み
-window.jQuery = window.$ = require('jquery/dist/jquery.min')
 // クリップボードコピー用jsの読み込み
 import Clipboard from 'clipboard/dist/clipboard.js'
 // bootstrapの読み込み
-require('bootstrap')
+window.jQuery = window.$ = require('jquery/dist/jquery.min')
+import 'bootstrap/dist/js/bootstrap.min'
 // font-awesomeの読み込み
 require('font-awesome/css/font-awesome.css')
 // scssの読み込み

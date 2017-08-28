@@ -46,7 +46,15 @@ let mainConfig = {
       removeConsole: true,
       removeDebugger: true
     }),
-    new webpack.NoEmitOnErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin(),
+    //new webpack.ProvidePlugin({
+       //$: "jquery",
+       //jquery: "jquery",
+       //jQuery:"jquery",
+       //"Tether": 'tether',
+       //"window.jQuery": "jquery",
+        //"window.Tether": 'tether'
+    //})
   ],
   resolve: {
     extensions: ['.js', '.json', '.node']

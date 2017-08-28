@@ -11,9 +11,9 @@ export default new Router({
     component: require('@/components/Index')
   },
   {
-    path: '/db',
-    name: 'db',
-    component: require('@/components/Db')
+    path: '/houkokusyo',
+    name: 'houkokusyo',
+    component: require('@/components/Houkokusyo')
   },
   {
     path: '/write',
