@@ -11,10 +11,10 @@ Vue.config.productionTip = true
 
 /* eslint-disable no-new */
 new Vue({
-  components: { App },
-  router,
-  store,
-  template: '<App/>'
+    components: { App },
+    router,
+    store,
+    template: '<App/>'
 }).$mount('#app')
 
 //独自追加vue-tables-2
@@ -28,11 +28,11 @@ Vue.use(ClientTable)
 import { remote } from 'electron'
 
 remote.globalShortcut.register('CommandOrControl+Shift+K', () => {
-  remote.BrowserWindow.getFocusedWindow().webContents.openDevTools()
+    remote.BrowserWindow.getFocusedWindow().webContents.openDevTools()
 })
 
 window.addEventListener('beforeunload', () => {
-  remote.globalShortcut.unregisterAll()
+    remote.globalShortcut.unregisterAll()
 })
 
 // ---------------------------------------------------------------------
@@ -50,14 +50,22 @@ import 'bootstrap/dist/js/bootstrap.min'
 require('font-awesome/css/font-awesome.css')
 // scssの読み込み
 import './main.scss'
+// tablesorterの読み込み
+import 'tablesorter/dist/js/jquery.tablesorter'
+
+$('#hokoku-button').click(function (e) {
+    setTimeout(function(){
+        $("#hokoku-tb").tablesorter();
+    }, 3000);
+});
 
 // ---------------------------------------------------------------------
 // bootstrapのスクリプト読み込み
 // ---------------------------------------------------------------------
 // タブの制御
 $('#caseTab a').click(function (e) {
-  e.preventDefault()
-  $(this).tab('show')
+    e.preventDefault()
+    $(this).tab('show')
 });
 // ---------------------------------------------------------------------
 // デザイン用の独自jqueryスクリプト
@@ -92,5 +100,23 @@ $(document).on('click','.tab-kotsu',function () {
 // クリップボードコピー
 // ---------------------------------------------------------------------
 $(function () {
-   var clipboard = new Clipboard('.clip_copy_btn');
+    var clipboard = new Clipboard('.clip_copy_btn');
 });
+
+// ---------------------------------------------------------------------
+// 右クリック表示
+// ---------------------------------------------------------------------
+const Menu = remote.Menu;
+const MenuItem = remote.MenuItem;
+
+var menu = new Menu();
+menu.append(new MenuItem({
+  label: 'コピー',
+  accelerator: 'CmdOrCtrl+C',
+  role: 'copy'
+}));
+
+window.addEventListener('contextmenu', function (e) {
+  e.preventDefault();
+  menu.popup(remote.getCurrentWindow());
+}, false);

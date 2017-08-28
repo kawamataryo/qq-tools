@@ -8,16 +8,16 @@
             <p class="text-center">検索文字を下記フォームに入力してください</p>
             <div class="form-group search-btn mg-t-40">
                 <input type="text" v-model="findWord" class="form-control form-control-lg">
-                <button @click="dbQuery" class="btn btn-warning btn-lg mg-l-20">検索</button>
+                <button id="hokoku-button"@click="dbQuery" class="btn btn-warning btn-lg mg-l-20">検索</button>
             </div>
             <!-- 検索結果テーブル -->
-            <table id="houkokusyo-tb" class="table table-striped table-bordered mg-t-50 search-table" v-if="findRisult.length !== 0">
+            <table id="hokoku-tb" class="tablesorter table table-striped table-bordered mg-t-50 search-table" v-if="findRisult.length !== 0">
                 <thead>
-                    <tr class="table-success">
+                    <tr class="table-warning">
                         <th>日付</th>
-                        <th>出動隊</th>
+                        <th>隊</th>
                         <th>種別</th>
-                        <th>搬送者者</th>
+                        <th>人数</th>
                         <th>概要備考</th>
                         <th>事故等の内容</th>
                     </tr>
@@ -81,6 +81,10 @@ export default {
                     return 0;
                 });
             }.bind(this));
+        },
+        sortBy: function(sortKey) {
+          this.reverse = (this.sortKey == sortKey) ? ! this.reverse : false;
+          this.sortKey = sortKey;
         }
     },
     name: 'houkokusyo'
