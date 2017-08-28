@@ -259,53 +259,53 @@ body {
 // ------------------------------------------------------------------
 // custom DB関連
 // ------------------------------------------------------------------
-.VueTables {
-    // 検索フォーム
-    .VueTables__search {
-        width: 100%;
-        margin-bottom: 30px;
-        label {
-            font-size: 30px;
-            &:before {
-                content: "\F002";
-                font-family: FontAwesome;
-                color: $brand-warning;
-                margin-right: 5px;
-            }
-        }
-        input {
-            display: block;
-            padding: 16px;
-            width: 100%;
-            background-color: rgba($brand-warning,0.3);
-        }
-    }
-    // tableレイアウト
-    thead {
-        border-bottom: 4px solid #bbb;
-        tr {
-            th {
-                text-align: center;
-                cursor: pointer;
-            }
-            th:nth-child(4) {
-                width: 7%;
-            }
-            th:nth-child(3) {
-                width: 8%;
-            }
-            th:last-child {
-                width: 30%;
-            }
-        }
-    }
-    td {
-        vertical-align: middle;
-    }
-    .table-bordered th, .table-bordered td {
-        border: 1px solid #ccc;
-    }
-}
+//.VueTables {
+    //// 検索フォーム
+    //.VueTables__search {
+        //width: 100%;
+        //margin-bottom: 30px;
+        //label {
+            //font-size: 30px;
+            //&:before {
+                //content: "\F002";
+                //font-family: FontAwesome;
+                //color: $brand-warning;
+                //margin-right: 5px;
+            //}
+        //}
+        //input {
+            //display: block;
+            //padding: 16px;
+            //width: 100%;
+            //background-color: rgba($brand-warning,0.3);
+        //}
+    //}
+    //// tableレイアウト
+    //thead {
+        //border-bottom: 4px solid #bbb;
+        //tr {
+            //th {
+                //text-align: center;
+                //cursor: pointer;
+            //}
+            //th:nth-child(4) {
+                //width: 7%;
+            //}
+            //th:nth-child(3) {
+                //width: 8%;
+            //}
+            //th:last-child {
+                //width: 30%;
+            //}
+        //}
+    //}
+    //td {
+        //vertical-align: middle;
+    //}
+    //.table-bordered th, .table-bordered td {
+        //border: 1px solid #ccc;
+    //}
+//}
 
 // ------------------------------------------------------------------
 // index.vue関連
@@ -364,3 +364,42 @@ body {
         border: 1px solid #ccc;
     }
 }
+// ------------------------------------------------------------------
+// 報告書検索
+// ------------------------------------------------------------------
+.tablesorter {
+    thead {
+        th {
+            background-color: rgba($brand-warning,0.4);
+            vertical-align: center;
+            cursor: pointer;
+            &:hover {
+                background-color: rgba($brand-warning,0.8);
+            }
+            &:nth-child(1) {
+                width: 10%;
+            }
+            &:nth-child(2) {
+                width: 5%;
+            }
+            &:nth-child(3) {
+                width: 5%;
+            }
+            &:nth-child(4) {
+                width: 5%;
+            }
+            &:nth-child(5) {
+                width: 50%;
+            }
+        }
+    }
+    tbody {
+        td {
+            text-align: center;
+            &:nth-child(5), &:nth-child(6) {
+                text-align: left;
+            }
+        }
+    }
+}
+
