@@ -107,7 +107,8 @@ let rendererConfig = {
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.ProvidePlugin({
             $: 'jquery',
-            jQuery: 'jquery'
+            jQuery: 'jquery',
+            "Tether": 'tether',
         })
     ],
     output: {
