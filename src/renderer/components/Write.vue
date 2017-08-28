@@ -1,21 +1,7 @@
 <template>
     <div>
         <!-- トップナビ -->
-        <nav class="navbar navbar-light navbar-toggleable-xl bg-faded">
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <router-link to="/" class="nav-link link-index"><i class="fa fa-undo mg-r-5" aria-hidden="true"></i>戻る</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/db" class="nav-link link-db"><i class="fa fa-search mg-r-5" aria-hidden="true"></i>過去事案検索</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/disease" class="nav-link link-db"><i class="fa fa-stethoscope mg-r-5" aria-hidden="true"></i>疾病分類検索</router-link>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <headerNav></headerNav>
         <!-- コンテンツ -->
         <div class="container">
             <h1 class="main-title">救急報告書文章作成フォーム<span>ver 1</span></h1>
@@ -60,7 +46,8 @@
 
 <script>
 
-    // templateの読み込み
+// templateの読み込み
+import headerNav from './common/headerNav.vue'
 import kyubyou from './forms/Kyubyou.vue'
 import ippan from './forms/ippan.vue'
 import kotsu from './forms/kotsu.vue'
@@ -68,6 +55,7 @@ import tensou from './forms/tensou.vue'
 // vuebinding
 export default {
     components: {
+        headerNav,
         kyubyou,
         ippan,
         kotsu,

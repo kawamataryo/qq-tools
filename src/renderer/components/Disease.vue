@@ -1,21 +1,7 @@
 <template>
     <div>
         <!-- トップナビ -->
-        <nav class="navbar navbar-light navbar-toggleable-xl bg-faded mg-b-30">
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <router-link to="/" class="nav-link link-index"><i class="fa fa-undo mg-r-5" aria-hidden="true"></i>戻る</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/write" class="nav-link link-write"><i class="fa fa-pencil mg-r-5" aria-hidden="true"></i>文章作成フォーム</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/db" class="nav-link link-db"><i class="fa fa-search mg-r-5" aria-hidden="true"></i>過去事案検索</router-link>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <headerNav></headerNav>
         <!-- コンテンツ -->
         <div class="container">
             <h1 class="text-center mg-t-100"><i class="fa fa-stethoscope mg-r-15"></i>疾病分類検索フォーム</h1>
@@ -51,6 +37,10 @@
 
 <script>
 
+
+// templateの読み込み
+import headerNav from './common/headerNav.vue'
+
 // ---------------------------------------------------------------------
 // NeDB設定
 // ---------------------------------------------------------------------
@@ -67,6 +57,9 @@ diseaseDB.insert(dbData);
 // vue スクリプト
 // ---------------------------------------------------------------------
 export default {
+    components: {
+        headerNav,
+    },
     data () {
         return {
             findWord : '',
