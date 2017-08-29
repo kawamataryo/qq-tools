@@ -43,8 +43,8 @@ let mainConfig = {
   },
   plugins: [
     new BabiliWebpackPlugin({
-      removeConsole: true,
-      removeDebugger: true
+      //removeConsole: true,
+      //removeDebugger: true
     }),
     new webpack.NoEmitOnErrorsPlugin(),
     //new webpack.ProvidePlugin({
