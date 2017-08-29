@@ -120,3 +120,13 @@ window.addEventListener('contextmenu', function (e) {
   e.preventDefault();
   menu.popup(remote.getCurrentWindow());
 }, false);
+// ---------------------------------------------------------------------
+// devtool表示
+// ---------------------------------------------------------------------
+document.addEventListener("keydown", function (e) {
+if (e.which === 123) {
+    require('remote').getCurrentWindow().toggleDevTools();
+} else if (e.which === 116) {
+    location.reload();
+}
+});
