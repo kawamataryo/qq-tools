@@ -117,8 +117,8 @@ menu.append(new MenuItem({
 }));
 menu.append(new MenuItem({
   label: '貼り付け',
-  accelerator: 'CmdOrCtrl+v',
-  role: 'past'
+  accelerator: 'CmdOrCtrl+V',
+  role: 'paste'
 }));
 
 window.addEventListener('contextmenu', function (e) {
