@@ -24,7 +24,8 @@
   "author": "ryo <ba068082@gmail.com>",
   "license": null,
   "dependencies": {
-    "axios": "^0.16.1",
+    "axios": "^0.16.2",
+    "axos": "^0.0.1",
     "bootstrap": "4.0.0-alpha.6",
     "bootstrap-sass": "^3.3.7",
     "clipboard": "^1.7.1",

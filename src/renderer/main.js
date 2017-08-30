@@ -115,18 +115,13 @@ menu.append(new MenuItem({
   accelerator: 'CmdOrCtrl+C',
   role: 'copy'
 }));
+menu.append(new MenuItem({
+  label: '貼り付け',
+  accelerator: 'CmdOrCtrl+v',
+  role: 'past'
+}));
 
 window.addEventListener('contextmenu', function (e) {
   e.preventDefault();
   menu.popup(remote.getCurrentWindow());
 }, false);
-// ---------------------------------------------------------------------
-// devtool表示
-// ---------------------------------------------------------------------
-document.addEventListener("keydown", function (e) {
-if (e.which === 123) {
-    require('remote').getCurrentWindow().toggleDevTools();
-} else if (e.which === 116) {
-    location.reload();
-}
-});
