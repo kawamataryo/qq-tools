@@ -36,6 +36,7 @@
             <div v-else-if="Array.isArray(findRisult)">
                 <h4 class="text-center mg-t-50">検索文字が見つかりません。文字を削るなどして再検索してください。</h4>
             </div>
+            <topLink></topLink>
         </div>
     </div>
 </template>
@@ -45,6 +46,7 @@
 
 // templateの読み込み
 import headerNav from './common/headerNav.vue'
+import topLink from './common/topLink.vue'
 
 // ---------------------------------------------------------------------
 // NeDB設定
@@ -64,6 +66,7 @@ houkokusyoDB.insert(dbData);
 export default {
     components: {
         headerNav,
+        topLink,
     },
     data () {
         return {

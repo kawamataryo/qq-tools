@@ -40,6 +40,7 @@
                 </div>
                 <div class="tab-pane" id="cpa" role="tabpanel">準備中</div>
             </div>
+            <topLink></topLink>
         </div>
     </div>
 </template>
@@ -48,6 +49,7 @@
 
 // templateの読み込み
 import headerNav from './common/headerNav.vue'
+import topLink from './common/topLink.vue'
 import kyubyou from './forms/Kyubyou.vue'
 import ippan from './forms/ippan.vue'
 import kotsu from './forms/kotsu.vue'
@@ -56,6 +58,7 @@ import tensou from './forms/tensou.vue'
 export default {
     components: {
         headerNav,
+        topLink,
         kyubyou,
         ippan,
         kotsu,

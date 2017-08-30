@@ -56,7 +56,7 @@ import 'tablesorter/dist/js/jquery.tablesorter'
 $('#hokoku-button').click(function () {
     setTimeout(function(){
         $("#hokoku-tb").tablesorter();
-    }, 3000);
+    }, 1000);
 });
 
 // ---------------------------------------------------------------------
