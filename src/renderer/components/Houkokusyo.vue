@@ -8,7 +8,7 @@
             <p class="text-center">検索文字を下記フォームに入力してください</p>
             <div class="form-group search-btn mg-t-40">
                 <input type="text" v-model="findWord" class="form-control form-control-lg">
-                <button id="hokoku-button"@click="dbQuery" class="btn btn-warning btn-lg mg-l-20">検索</button>
+                <button id="hokoku-button" @click="dbQuery" class="btn btn-warning btn-lg mg-l-20">検索</button>
             </div>
             <!-- 検索結果テーブル -->
             <table id="hokoku-tb" class="tablesorter table table-striped table-bordered mg-t-50 search-table" v-if="findRisult.length !== 0">
