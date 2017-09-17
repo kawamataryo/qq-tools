@@ -75,6 +75,11 @@ export default {
             erre: ''
         }
     },
+    computed: {
+        findWordToArray: function () {
+            return this.findWord.split(/\s+/);
+        }
+    },
     methods: {
         dbQuery: function () {
             houkokusyoDB.find({biko: new RegExp(".*"+this.findWord+".*", "i")} , function (err, doc) {
