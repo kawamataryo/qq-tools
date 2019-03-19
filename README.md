@@ -5,3 +5,18 @@
 - 過去事案の本文検索
 - 疾病分類の検索
 
+# 起動方法
+
+npm pckageのinstall
+
+```
+$ yarn
+```
+
+起動
+
+```
+$ yarn run dev
+```
+
+
