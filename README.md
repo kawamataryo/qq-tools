@@ -7,7 +7,7 @@
 
 # 起動方法
 
-npm pckageのinstall
+node_modulesのinstall
 
 ```
 $ yarn
