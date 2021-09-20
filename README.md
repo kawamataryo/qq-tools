@@ -1,7 +1,7 @@
 # 救急報告書便利ツール
 報告書作成を補助するElectronアプリ。
+![My-Movie-4](https://user-images.githubusercontent.com/11070996/134008538-e4815cbb-66f6-4715-97dd-7d5ab2deabfe.gif)
 
-![](https://i.gyazo.com/3fa8c12caa41d136ad9fb2986e94ead9.gif)
 
 ## 機能
 - 報告書文章の生成
