@@ -1,7 +1,7 @@
 # 救急報告書便利ツール
 報告書作成を補助するElectronアプリ。
 
-<img width="1255" alt="Screen Shot 2021-09-21 at 20 41 52" src="https://user-images.githubusercontent.com/11070996/134244415-96d91463-189d-4230-b7dd-bb24ef10ec2b.png">
+https://user-images.githubusercontent.com/11070996/134244780-0d9799ab-3417-471b-b4f8-67c4e0cbbcde.mp4
 
 ## 機能
 - 報告書文章の生成
