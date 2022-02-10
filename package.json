@@ -33,7 +33,7 @@
     "font-awesome": "^4.7.0",
     "fontawesome": "^4.7.2",
     "nedb": "^1.8.0",
-    "node-sass": "^4.5.3",
+    "node-sass": "^7.0.0",
     "sass-loader": "^6.0.6",
     "tablesort": "^5.0.1",
     "tablesorter": "^2.28.15",
